@@ -1,9 +1,7 @@
 package com.ensias_docs.demo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Semestre {
@@ -16,6 +14,15 @@ public class Semestre {
 
     @Column(length = 30)
     private String nom;
+
+    @OneToMany(mappedBy = "semestre", fetch = FetchType.LAZY)
+    private Collection<Module> modules;
+
+    public Semestre(String abrv, String nom, Collection<Module> modules) {
+        this.abrv = abrv;
+        this.nom = nom;
+        this.modules = modules;
+    }
 
     public Semestre() {
     }
@@ -49,4 +56,15 @@ public class Semestre {
         this.nom = nom;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Collection<Module> getModules() {
+        return modules;
+    }
+
+    public void setModules(Collection<Module> modules) {
+        this.modules = modules;
+    }
 }

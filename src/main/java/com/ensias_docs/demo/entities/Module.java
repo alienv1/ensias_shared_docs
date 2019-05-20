@@ -20,6 +20,34 @@ public class Module {
     @OneToMany(mappedBy = "module", fetch = FetchType.LAZY)
     private Collection<ElementModule> elementModules;
 
+    @ManyToOne
+    @JoinColumn(name = "id_semestre")
+    private Semestre semestre;
+
+    public Module(String abrv, String nom, Integer volumeHoraire, Collection<ElementModule> elementModules, Semestre semestre) {
+        this.abrv = abrv;
+        this.nom = nom;
+        this.volumeHoraire = volumeHoraire;
+        this.elementModules = elementModules;
+        this.semestre = semestre;
+    }
+
+    public Module(String abrv, String nom, Integer volumeHoraire, Filiere filiere, Collection<ElementModule> elementModules, Semestre semestre) {
+        this.abrv = abrv;
+        this.nom = nom;
+        this.volumeHoraire = volumeHoraire;
+        this.filiere = filiere;
+        this.elementModules = elementModules;
+        this.semestre = semestre;
+    }
+
+    public Module(String abrv, String nom, Integer volumeHoraire, Semestre semestre) {
+        this.abrv = abrv;
+        this.nom = nom;
+        this.volumeHoraire = volumeHoraire;
+        this.semestre = semestre;
+    }
+
     public Module() {
     }
 
@@ -97,5 +125,13 @@ public class Module {
 
     public void setFiliere(Filiere filiere) {
         this.filiere = filiere;
+    }
+
+    public Semestre getSemestre() {
+        return semestre;
+    }
+
+    public void setSemestre(Semestre semestre) {
+        this.semestre = semestre;
     }
 }
