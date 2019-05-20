@@ -24,12 +24,27 @@ public class Module {
     @JoinColumn(name = "id_semestre")
     private Semestre semestre;
 
-    public Module(String abrv, String nom, Integer volumeHoraire, Collection<ElementModule> elementModules, Semestre semestre) {
+    @ManyToOne
+    @JoinColumn(name = "id_responsable")
+    private Enseignant responsable;
+
+    public Module(String abrv, String nom, Integer volumeHoraire, Filiere filiere, Collection<ElementModule> elementModules, Semestre semestre, Enseignant responsable) {
         this.abrv = abrv;
         this.nom = nom;
         this.volumeHoraire = volumeHoraire;
+        this.filiere = filiere;
         this.elementModules = elementModules;
         this.semestre = semestre;
+        this.responsable = responsable;
+    }
+
+    public Module(String abrv, String nom, Integer volumeHoraire, Filiere filiere, Semestre semestre, Enseignant responsable) {
+        this.abrv = abrv;
+        this.nom = nom;
+        this.volumeHoraire = volumeHoraire;
+        this.filiere = filiere;
+        this.semestre = semestre;
+        this.responsable = responsable;
     }
 
     public Module(String abrv, String nom, Integer volumeHoraire, Filiere filiere, Collection<ElementModule> elementModules, Semestre semestre) {
@@ -133,5 +148,13 @@ public class Module {
 
     public void setSemestre(Semestre semestre) {
         this.semestre = semestre;
+    }
+
+    public Enseignant getResponsable() {
+        return responsable;
+    }
+
+    public void setResponsable(Enseignant responsable) {
+        this.responsable = responsable;
     }
 }

@@ -1,9 +1,7 @@
 package com.ensias_docs.demo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Enseignant {
@@ -17,7 +15,16 @@ public class Enseignant {
     private String prenom;
     private String email;
 
+    @OneToMany(mappedBy = "responsable", fetch = FetchType.LAZY)
+    private Collection<Module> modules; //ce prof est responsable de ces modules
     public Enseignant() {
+    }
+
+    public Enseignant(String nom, String prenom, String email, Collection<Module> modules) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.modules = modules;
     }
 
     public Enseignant(String nom, String prenom, String email) {
@@ -56,5 +63,13 @@ public class Enseignant {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Collection<Module> getModules() {
+        return modules;
+    }
+
+    public void setModules(Collection<Module> modules) {
+        this.modules = modules;
     }
 }
