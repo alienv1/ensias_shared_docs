@@ -13,10 +13,29 @@ public class Module {
     private String nom;
     private Integer volumeHoraire;
 
+    @ManyToOne
+    @JoinColumn(name = "id_filiere")
+    private Filiere filiere;
+
     @OneToMany(mappedBy = "module", fetch = FetchType.LAZY)
     private Collection<ElementModule> elementModules;
 
     public Module() {
+    }
+
+    public Module(String abrv, String nom, Integer volumeHoraire, Filiere filiere) {
+        this.abrv = abrv;
+        this.nom = nom;
+        this.volumeHoraire = volumeHoraire;
+        this.filiere = filiere;
+    }
+
+    public Module(String abrv, String nom, Integer volumeHoraire, Filiere filiere, Collection<ElementModule> elementModules) {
+        this.abrv = abrv;
+        this.nom = nom;
+        this.volumeHoraire = volumeHoraire;
+        this.filiere = filiere;
+        this.elementModules = elementModules;
     }
 
     public Module(String abrv, String nom, Integer volumeHoraire) {
@@ -70,5 +89,13 @@ public class Module {
 
     public void setElementModules(Collection<ElementModule> elementModules) {
         this.elementModules = elementModules;
+    }
+
+    public Filiere getFiliere() {
+        return filiere;
+    }
+
+    public void setFiliere(Filiere filiere) {
+        this.filiere = filiere;
     }
 }
