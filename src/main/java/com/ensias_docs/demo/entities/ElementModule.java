@@ -25,6 +25,9 @@ public class ElementModule {
     @ManyToMany(mappedBy = "elementModules", fetch = FetchType.LAZY)
     private Collection<Enseignant> enseignants;
 
+    public ElementModule() {
+    }
+
     public ElementModule(String abrv, String nom, String description) {
         this.abrv = abrv;
         this.nom = nom;

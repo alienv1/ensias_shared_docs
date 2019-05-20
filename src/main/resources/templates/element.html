@@ -13,14 +13,16 @@
                 <th>Abrv</th>
                 <th>Nom</th>
                 <th>Description</th>
+                <th>element</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="f:${filieres}">
+            <tr th:each="f:${elements}">
                 <td th:text="${f.id}"></td>
                 <td th:text="${f.abrv}"></td>
                 <td th:text="${f.nom}"></td>
                 <td th:text="${f.description}"></td>
+                <td th:text="${f.module.nom}"></td>
             </tr>
         </tbody>
     </table>
