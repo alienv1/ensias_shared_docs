@@ -6,8 +6,10 @@ import java.util.Collection;
 @Entity
 public class ElementModule {
     @Id
-    private String id;
-
+    @GeneratedValue
+    private Long id;
+    @Column(length = 10)
+    private String abrv;
     @Column(length = 40)
     private String nom;
     private String description;
@@ -23,15 +25,21 @@ public class ElementModule {
     @ManyToMany(mappedBy = "elementModules", fetch = FetchType.LAZY)
     private Collection<Enseignant> enseignants;
 
-    public ElementModule(String id, String nom,Collection<Enseignant> enseignants, String description) {
-        this.id = id;
+    public ElementModule(String abrv, String nom, String description) {
+        this.abrv = abrv;
         this.nom = nom;
         this.description = description;
-        this.enseignants = enseignants;
     }
 
-    public ElementModule(String id, String nom, String description, Module module, Collection<Document> documents, Collection<Enseignant> enseignants) {
-        this.id = id;
+    public ElementModule(String abrv, String nom, String description, Module module) {
+        this.abrv = abrv;
+        this.nom = nom;
+        this.description = description;
+        this.module = module;
+    }
+
+    public ElementModule(String abrv, String nom, String description, Module module, Collection<Document> documents, Collection<Enseignant> enseignants) {
+        this.abrv = abrv;
         this.nom = nom;
         this.description = description;
         this.module = module;
@@ -39,43 +47,20 @@ public class ElementModule {
         this.enseignants = enseignants;
     }
 
-    public ElementModule() {
-    }
-
-    public ElementModule(String id, String nom, String description) {
-        this.id = id;
-        this.nom = nom;
-        this.description = description;
-    }
-
-    public ElementModule(String id, String nom, String description, Module module) {
-        this.id = id;
-        this.nom = nom;
-        this.description = description;
-        this.module = module;
-    }
-
-    public ElementModule(String id, String nom, String description, Module module, Collection<Document> documents) {
-        this.id = id;
-        this.nom = nom;
-        this.description = description;
-        this.module = module;
-        this.documents = documents;
-    }
-
-    public ElementModule(String id, String nom, String description, Collection<Document> documents) {
-        this.id = id;
-        this.nom = nom;
-        this.description = description;
-        this.documents = documents;
-    }
-
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getAbrv() {
+        return abrv;
+    }
+
+    public void setAbrv(String abrv) {
+        this.abrv = abrv;
     }
 
     public String getNom() {
