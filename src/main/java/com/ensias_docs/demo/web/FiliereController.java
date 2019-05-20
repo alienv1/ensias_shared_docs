@@ -15,7 +15,7 @@ public class FiliereController {
     @Autowired
     private FiliereRepo filiereRepo;
 
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "/filieres")
     public String filiere(Model model){
         List<Filiere> filieres = filiereRepo.findAll();
         model.addAttribute("filieres", filieres);

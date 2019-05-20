@@ -19,7 +19,7 @@ public class EnsiasDocsApplication {
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(EnsiasDocsApplication.class, args);
-        FiliereRepo filiereRepository = ctx.getBean(FiliereRepo.class);
+        /*FiliereRepo filiereRepository = ctx.getBean(FiliereRepo.class);
         filiereRepository.save(new Filiere("GL", "Génie Logiciel", "description du Génie Logiciel"));
         filiereRepository.save(new Filiere("eMBI", "e-Management et Business Intelligence", "description du e-Management et Business Intelligence"));
         filiereRepository.save(new Filiere("IeL", "Ingénierie e-Logistique", "description du Ingénierie e-Logistique"));
@@ -44,6 +44,6 @@ public class EnsiasDocsApplication {
 
         ElementModuleRepo elementModuleRepo = ctx.getBean(ElementModuleRepo.class);
         elementModuleRepo.save(new ElementModule("M1.1.1", "Algorithmique", "description", module));
-        elementModuleRepo.save(new ElementModule("M1.1.2", "Programmation C", "description", module));
+        elementModuleRepo.save(new ElementModule("M1.1.2", "Programmation C", "description", module));*/
     }
 }

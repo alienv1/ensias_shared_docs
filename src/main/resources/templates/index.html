@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html  xmlns:th="http//www.thymeleaf.org">
+<head>
+<title>Course</title>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="description" content="Course Project"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" type="text/css" href="../static/styles/bootstrap4/bootstrap.min.css"
+	  th:href="@{styles/bootstrap4/bootstrap.min.css}"/>
+<link href="../static/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css"
+	  th:href="@{plugins/fontawesome-free-5.0.1/css/fontawesome-all.css}"
+	  rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="../static/plugins/OwlCarousel2-2.2.1/owl.carousel.css"
+	  th:href="@{plugins/OwlCarousel2-2.2.1/owl.carousel.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css"
+	  th:href="@{plugins/OwlCarousel2-2.2.1/owl.theme.default.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/plugins/OwlCarousel2-2.2.1/animate.css"
+	  th:href="@{plugins/OwlCarousel2-2.2.1/animate.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/styles/main_styles.css"
+	  th:href="@{styles/main_styles.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/styles/responsive.css"
+	  th:href="@{styles/responsive.css}"/>
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+	<header class="header d-flex flex-row">
+		<div class="header_content d-flex flex-row align-items-center">
+			<!-- Logo -->
+			<div class="logo_container">
+				<a href="index.html">
+					<div class="logo">
+						<img src="images/ENSIAS_logo.png" alt="">
+						<span>ENSIAS</span>
+					</div>
+				</a>
+			</div>
+
+			<!-- Main Navigation -->
+			<nav class="main_nav_container">
+				<div class="main_nav">
+					<ul class="main_nav_list">
+						<li class="main_nav_item"><a href="index.html">home</a></li>
+						<li class="main_nav_item"><a href="#">Forum</a></li>
+						<li class="main_nav_item"><a href="filieres.html">Filieres</a></li>
+						<li class="main_nav_item"><a href="events.html">Evenements</a></li>
+						<li class="main_nav_item"><a href="news.html">About us</a></li>
+						<li class="main_nav_item"><a href="contact.html">contact</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="header_side d-flex flex-row justify-content-center align-items-center">
+				<span>Login</span>
+		</div>
+		<!-- Hamburger -->
+		<div class="hamburger_container">
+			<i class="fas fa-bars trans_200"></i>
+		</div>
+	</header>
+	
+	<!-- Menu -->
+	<div class="menu_container menu_mm">
+
+		<!-- Menu Close Button -->
+		<div class="menu_close_container">
+			<div class="menu_close"></div>
+		</div>
+
+		<!-- Menu Items -->
+		<div class="menu_inner menu_mm">
+			<div class="menu menu_mm">
+				<ul class="menu_list menu_mm">
+					<li class="menu_item menu_mm"><a href="#">Home</a></li>
+					<li class="menu_item menu_mm"><a href="#">Forum</a></li>
+					<li class="menu_item menu_mm"><a href="filieres.html">Filieres</a></li>
+					<li class="menu_item menu_mm"><a href="events.html">Evenements</a></li>
+					<li class="menu_item menu_mm"><a href="news.html">About us</a></li>
+					<li class="menu_item menu_mm"><a href="contact.html">Contact</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Home -->
+	<div class="home">
+
+		<!-- Background Slider -->
+		<div class="hero_slider_container">
+			<div class="hero_slider owl-carousel">
+				<div class="hero_slide">
+					<div class="hero_slide_background" style="background-image:url(../static/images/slider_background.jpg)"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="hero_boxes">
+		<div class="hero_boxes_inner">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-lg-4 hero_box_col">
+						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
+							<img src="images/earth-globe.svg" class="svg" alt="">
+							<div class="hero_box_content">
+								<h2 class="hero_box_title">Cours</h2>
+								<a href="filieres.html" class="hero_box_link">view more</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 hero_box_col">
+						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
+							<img src="images/books.svg" class="svg" alt="">
+							<div class="hero_box_content">
+								<h2 class="hero_box_title">Bibliothèque</h2>
+								<a href="filieres.html" class="hero_box_link">view more</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-4 hero_box_col">
+						<div class="hero_box d-flex flex-row align-items-center justify-content-start">
+							<a href="teachers.html">
+							<img src="images/professor.svg" class="svg" alt="">
+							<div class="hero_box_content">
+								<h2 class="hero_box_title">Professeures</h2>
+								<a href="filieres.html" class="hero_box_link">view more</a>
+							</div>
+							</a>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Branches -->
+
+	<div class="popular page_section">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h1>Filieres</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="row course_boxes">
+				
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card">
+						<img class="card-img-top" src="images/course_1.jpg" alt="https://unsplash.com/@kellybrito">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="filieres.html" th:text="${filieres[0].abrv}"></a></div>
+							<div class="card-text"  th:text="${filieres[0].nom}"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card">
+						<img class="card-img-top" src="images/course_2.jpg" alt="https://unsplash.com/@cikstefan">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="filieres.html"  th:text="${filieres[1].abrv}"></a></div>
+							<div class="card-text"  th:text="${filieres[1].nom}"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Popular Course Item -->
+				<div class="col-lg-4 course_box">
+					<div class="card">
+						<img class="card-img-top" src="images/course_3.jpg" alt="https://unsplash.com/@dsmacinnes">
+						<div class="card-body text-center">
+							<div class="card-title"><a href="filieres.html"  th:text="${filieres[2].abrv}"></a></div>
+							<div class="card-text"  th:text="${filieres[2].nom}"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row course_boxes">
+				
+					<!-- Popular Course Item -->
+					<div class="col-lg-4 course_box">
+						<div class="card">
+							<img class="card-img-top" src="images/course_1.jpg" alt="https://unsplash.com/@kellybrito">
+							<div class="card-body text-center">
+								<div class="card-title"><a href="filieres.html" th:text="${filieres[3].abrv}"></a></div>
+								<div class="card-text"  th:text="${filieres[3].nom}"></div>
+							</div>
+						</div>
+					</div>
+	
+					<!-- Popular Course Item -->
+					<div class="col-lg-4 course_box">
+						<div class="card">
+							<img class="card-img-top" src="images/course_2.jpg" alt="https://unsplash.com/@cikstefan">
+							<div class="card-body text-center">
+								<div class="card-title"><a href="filieres.html"  th:text="${filieres[4].abrv}"></a></div>
+								<div class="card-text"  th:text="${filieres[4].nom}"></div>
+							</div>
+						</div>
+					</div>
+	
+					<!-- Popular Course Item -->
+					<div class="col-lg-4 course_box">
+						<div class="card">
+							<img class="card-img-top" src="images/course_3.jpg" alt="https://unsplash.com/@dsmacinnes">
+							<div class="card-body text-center">
+								<div class="card-title"><a href="filieres.html" th:text="${filieres[5].abrv}"></a></div>
+								<div class="card-text" th:text="${filieres[5].nom}"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+		</div>		
+	</div>
+
+	<!-- Services -->
+	<div class="services page_section">
+		
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h1>Notre service</h1>
+					</div>
+				</div>
+			</div>
+
+			<div class="row services_row">
+
+				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
+					<div class="icon_container d-flex flex-column justify-content-end">
+						<img src="images/earth-globe.svg" alt="">
+					</div>
+					<h3>Online Courses</h3>
+					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+				</div>
+
+				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
+					<div class="icon_container d-flex flex-column justify-content-end">
+						<img src="images/exam.svg" alt="">
+					</div>
+					<h3>Indoor Courses</h3>
+					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+				</div>
+
+				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
+					<div class="icon_container d-flex flex-column justify-content-end">
+						<img src="images/books.svg" alt="">
+					</div>
+					<h3>Amazing Library</h3>
+					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+				</div>
+
+				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
+					<div class="icon_container d-flex flex-column justify-content-end">
+						<img src="images/professor.svg" alt="">
+					</div>
+					<h3>Exceptional Professors</h3>
+					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+				</div>
+
+				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
+					<div class="icon_container d-flex flex-column justify-content-end">
+						<img src="images/blackboard.svg" alt="">
+					</div>
+					<h3>Top Programs</h3>
+					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+				</div>
+
+				<div class="col-lg-4 service_item text-left d-flex flex-column align-items-start justify-content-start">
+					<div class="icon_container d-flex flex-column justify-content-end">
+						<img src="images/mortarboard.svg" alt="">
+					</div>
+					<h3>Graduate Diploma</h3>
+					<p>In aliquam, augue a gravida rutrum, ante nisl fermentum nulla, vitae tempor nisl ligula vel nunc. Proin quis mi malesuada, finibus tortor fermentum.</p>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer class="footer">
+		<div class="container">
+
+			<!-- Footer Content -->
+			<div class="footer_content">
+				<div class="row">
+
+					<!-- Footer Column - About -->
+					<div class="col-lg-3 footer_col">
+
+						<!-- Logo -->
+						<div class="logo_container">
+							<div class="logo">
+								<img src="images/ENSIAS_logo.png" alt="">
+								<span>course</span>
+							</div>
+						</div>
+						<p class="footer_about_text">L’École nationale supérieure d’informatique et d’analyse des systèmes est l'une des grandes écoles d'ingénieurs marocaines rattachée à l'université Mohammed V de Rabat. Les étudiants et diplômés sont appelés les Ensiastes.</p>
+					</div>
+
+					<!-- Footer Column - Menu -->
+
+					<div class="col-lg-3 footer_col">
+						<div class="footer_column_title">Menu</div>
+						<div class="footer_column_content">
+							<ul>
+								<li class="footer_list_item"><a href="index.html">Home</a></li>
+								<li class="footer_list_item"><a href="#">Forum</a></li>
+								<li class="footer_list_item"><a href="filieres.html">Filieres</a></li>
+								<li class="footer_list_item"><a href="events.html">Evenements</a></li>
+								<li class="footer_list_item"><a href="about.html">About Us</a></li>
+								<li class="footer_list_item"><a href="contact.html">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Footer Column - Usefull Links -->
+
+					<div class="col-lg-3 footer_col">
+						<div class="footer_column_title">Usefull Links</div>
+						<div class="footer_column_content">
+							<ul>
+								<li class="footer_list_item"><a href="http://www.um5.ac.ma" title="UM5">UM5</a></li>
+								<li class="footer_list_item"><a href="http://www.enssup.gov.ma/" title="ENSSUP">ENSSUP</a></li>
+								<li class="footer_list_item"><a href="http://www.cnrst.ma" title="CNRST">CNRST</a></li>
+								<li class="footer_list_item"><a href="http://www.imist.ma" title="IMIST">IMIST</a></li>
+								<li class="footer_list_item"><a href="http://www.csefrs.ma" title="CSEFRS">CSEFRS</a></li>
+								<li class="footer_list_item"><a href="http://aiensias.canalblog.com" title="ALUMNI">ALUMNI</a></li>
+							</ul>
+						</div>
+					</div>
+
+					<!-- Footer Column - Contact -->
+
+					<div class="col-lg-3 footer_col">
+						<div class="footer_column_title">Contact</div>
+						<div class="footer_column_content">
+							<ul>
+								<li class="footer_contact_item">
+									<div class="footer_contact_icon">
+										<img src="images/placeholder.svg" alt="https://www.flaticon.com/authors/lucy-g">
+									</div>
+									Avenue Mohamed Ben Abdellah Regragui, Rabat
+								</li>
+								<li class="footer_contact_item">
+									<div class="footer_contact_icon">
+										<img src="images/smartphone.svg" alt="https://www.flaticon.com/authors/lucy-g">
+									</div>
+									(+212) 5 37 77 72 30
+								</li>
+								<li class="footer_contact_item">
+									<div class="footer_contact_icon">
+										<img src="images/envelope.svg" alt="https://www.flaticon.com/authors/lucy-g">
+									</div>hello@ensias.com
+								</li>
+							</ul>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Footer Copyright -->
+
+			<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
+				<div class="footer_social ml-sm-auto">
+					<ul class="menu_social">
+						<li class="menu_social_item"><a href="#"><i class="fab fa-pinterest"></i></a></li>
+						<li class="menu_social_item"><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+						<li class="menu_social_item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+						<li class="menu_social_item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+						<li class="menu_social_item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+					</ul>
+				</div>
+			</div>
+
+		</div>
+	</footer>
+
+</div>
+
+<script type="text/javascript"  th:src="@{js/jquery-3.2.1.min.js}"></script>
+<script type="text/javascript"  th:src="@{styles/bootstrap4/popper.js}"></script>
+<script type="text/javascript"  th:src="@{styles/bootstrap4/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{plugins/greensock/TweenMax.min.js}"></script>
+<script type="text/javascript" th:src="@{plugins/greensock/TimelineMax.min.js}"></script>
+<script type="text/javascript" th:src="@{plugins/scrollmagic/ScrollMagic.min.js}"></script>
+<script type="text/javascript" th:src="@{plugins/greensock/animation.gsap.min.js}"></script>
+<script type="text/javascript" th:src="@{plugins/greensock/ScrollToPlugin.min.js}"></script>
+<script type="text/javascript" th:src="@{plugins/OwlCarousel2-2.2.1/owl.carousel.js}"></script>
+<script type="text/javascript" th:src="@{plugins/scrollTo/jquery.scrollTo.min.js}"></script>
+<script type="text/javascript" th:src="@{plugins/easing/easing.js}"></script>
+<script type="text/javascript" th:src="@{js/custom.js}"></script>
+
+</body>
+</html>

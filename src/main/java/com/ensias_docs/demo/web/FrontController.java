@@ -22,4 +22,13 @@ public class FrontController {
         model.addAttribute("elements", elementModules);
         return "element";
     }
+
+    @Autowired
+    private FiliereRepo filiereRepo;
+    @RequestMapping(value = "/index")
+    public String index(Model model){
+        List<Filiere> filieres = filiereRepo.findAll();
+        model.addAttribute("filieres", filieres);
+        return "index";
+    }
 }
