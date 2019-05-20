@@ -31,11 +31,33 @@ public class FrontController {
         model.addAttribute("elements", elementModules);
         return "element";
     }
+
     @RequestMapping(value = "/index.html")
     public String index(Model model) {
         List<Filiere> filieres = filiereRepo.findAll();
         model.addAttribute("filieres", filieres);
         return "index";
+    }
+
+    @RequestMapping(value = "/contact.html")
+    public String contact(Model model) {
+        return "contact";
+    }
+    @RequestMapping(value = "/about.html")
+    public String about(Model model) {
+        return "about";
+    }
+    @RequestMapping(value = "/forum.html")
+    public String forum(Model model) {
+        return "forum";
+    }
+    @RequestMapping(value = "/events.html")
+    public String events(Model model) {
+        return "events";
+    }
+    @RequestMapping(value = "/teachers.html")
+    public String teachers(Model model) {
+        return "teachers";
     }
 
     @RequestMapping(value = "/filieres.html")
@@ -64,12 +86,19 @@ public class FrontController {
                           @RequestParam(name = "module", defaultValue = "1") Long id_module,
                           @RequestParam(name = "filiere", defaultValue = "1") Long id_filiere,
                           @RequestParam(name = "element", defaultValue = "-1") Long id_elem
-                          ) {
+    ) {
         Module module = moduleRepo.findById(id_module).get();
         Filiere filiere = filiereRepo.findById(id_filiere).get();
         model.addAttribute("module", module);
         model.addAttribute("filiere", filiere);
+        ElementModule elementModule;
+        if (id_elem == -1) {
+            elementModule = module.getElementModules().iterator().next();
+        } else {
+            elementModule = elementModuleRepo.findById(id_elem).get();
+        }
         model.addAttribute("elem", id_elem);
+        model.addAttribute("element", elementModule);
         return "elements";
     }
 }
