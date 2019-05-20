@@ -1,8 +1,7 @@
 package com.ensias_docs.demo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 public class Module {
@@ -12,6 +11,9 @@ public class Module {
     @Column(length = 50)
     private String nom;
     private Integer volumeHoraire;
+
+    @OneToMany(mappedBy = "module", fetch = FetchType.LAZY)
+    private Collection<ElementModule> elementModules;
 
     public Module(String id, String nom, Integer volumeHoraire) {
         this.id = id;

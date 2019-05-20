@@ -1,8 +1,6 @@
 package com.ensias_docs.demo.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class ElementModule {
@@ -13,6 +11,10 @@ public class ElementModule {
     private String nom;
     private String description;
 
+    @ManyToOne
+    @JoinColumn(name = "id_module")
+    private Module module;
+
     public ElementModule() {
     }
 
@@ -20,6 +22,13 @@ public class ElementModule {
         this.id = id;
         this.nom = nom;
         this.description = description;
+    }
+
+    public ElementModule(String id, String nom, String description, Module module) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.module = module;
     }
 
     public String getId() {
@@ -44,5 +53,13 @@ public class ElementModule {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Module getModule() {
+        return module;
+    }
+
+    public void setModule(Module module) {
+        this.module = module;
     }
 }
