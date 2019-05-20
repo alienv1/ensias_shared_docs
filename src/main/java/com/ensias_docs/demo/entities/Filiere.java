@@ -16,7 +16,7 @@ public class Filiere implements Serializable {
     private String nom;
     private String description;
 
-    @OneToMany(mappedBy = "filiere", fetch = FetchType.LAZY)
+    @ManyToMany
     private Collection<Module> modules;
 
     public Filiere(String abrv, String nom, String description, Collection<Module> modules) {

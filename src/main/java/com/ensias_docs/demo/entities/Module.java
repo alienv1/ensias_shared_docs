@@ -13,9 +13,8 @@ public class Module {
     private String nom;
     private Integer volumeHoraire;
 
-    @ManyToOne
-    @JoinColumn(name = "id_filiere")
-    private Filiere filiere;
+    @ManyToMany(mappedBy = "modules", fetch = FetchType.LAZY)
+    private Collection<Filiere> filieres;
 
     @OneToMany(mappedBy = "module", fetch = FetchType.LAZY)
     private Collection<ElementModule> elementModules;
@@ -28,32 +27,7 @@ public class Module {
     @JoinColumn(name = "id_responsable")
     private Enseignant responsable;
 
-    public Module(String abrv, String nom, Integer volumeHoraire, Filiere filiere, Collection<ElementModule> elementModules, Semestre semestre, Enseignant responsable) {
-        this.abrv = abrv;
-        this.nom = nom;
-        this.volumeHoraire = volumeHoraire;
-        this.filiere = filiere;
-        this.elementModules = elementModules;
-        this.semestre = semestre;
-        this.responsable = responsable;
-    }
-
-    public Module(String abrv, String nom, Integer volumeHoraire, Filiere filiere, Semestre semestre, Enseignant responsable) {
-        this.abrv = abrv;
-        this.nom = nom;
-        this.volumeHoraire = volumeHoraire;
-        this.filiere = filiere;
-        this.semestre = semestre;
-        this.responsable = responsable;
-    }
-
-    public Module(String abrv, String nom, Integer volumeHoraire, Filiere filiere, Collection<ElementModule> elementModules, Semestre semestre) {
-        this.abrv = abrv;
-        this.nom = nom;
-        this.volumeHoraire = volumeHoraire;
-        this.filiere = filiere;
-        this.elementModules = elementModules;
-        this.semestre = semestre;
+    public Module() {
     }
 
     public Module(String abrv, String nom, Integer volumeHoraire, Semestre semestre) {
@@ -63,35 +37,27 @@ public class Module {
         this.semestre = semestre;
     }
 
-    public Module() {
-    }
-
-    public Module(String abrv, String nom, Integer volumeHoraire, Filiere filiere) {
-        this.abrv = abrv;
-        this.nom = nom;
-        this.volumeHoraire = volumeHoraire;
-        this.filiere = filiere;
-    }
-
-    public Module(String abrv, String nom, Integer volumeHoraire, Filiere filiere, Collection<ElementModule> elementModules) {
-        this.abrv = abrv;
-        this.nom = nom;
-        this.volumeHoraire = volumeHoraire;
-        this.filiere = filiere;
-        this.elementModules = elementModules;
-    }
-
     public Module(String abrv, String nom, Integer volumeHoraire) {
         this.abrv = abrv;
         this.nom = nom;
         this.volumeHoraire = volumeHoraire;
     }
 
-    public Module(String abrv, String nom, Integer volumeHoraire, Collection<ElementModule> elementModules) {
+    public Module(String abrv, String nom, Integer volumeHoraire, Enseignant responsable) {
         this.abrv = abrv;
         this.nom = nom;
         this.volumeHoraire = volumeHoraire;
+        this.responsable = responsable;
+    }
+
+    public Module(String abrv, String nom, Integer volumeHoraire, Collection<Filiere> filieres, Collection<ElementModule> elementModules, Semestre semestre, Enseignant responsable) {
+        this.abrv = abrv;
+        this.nom = nom;
+        this.volumeHoraire = volumeHoraire;
+        this.filieres = filieres;
         this.elementModules = elementModules;
+        this.semestre = semestre;
+        this.responsable = responsable;
     }
 
     public Long getId() {
@@ -126,20 +92,20 @@ public class Module {
         this.volumeHoraire = volumeHoraire;
     }
 
+    public Collection<Filiere> getFilieres() {
+        return filieres;
+    }
+
+    public void setFilieres(Collection<Filiere> filieres) {
+        this.filieres = filieres;
+    }
+
     public Collection<ElementModule> getElementModules() {
         return elementModules;
     }
 
     public void setElementModules(Collection<ElementModule> elementModules) {
         this.elementModules = elementModules;
-    }
-
-    public Filiere getFiliere() {
-        return filiere;
-    }
-
-    public void setFiliere(Filiere filiere) {
-        this.filiere = filiere;
     }
 
     public Semestre getSemestre() {
