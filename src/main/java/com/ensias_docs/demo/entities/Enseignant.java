@@ -17,7 +17,27 @@ public class Enseignant {
 
     @OneToMany(mappedBy = "responsable", fetch = FetchType.LAZY)
     private Collection<Module> modules; //ce prof est responsable de ces modules
+
+    @ManyToMany
+    private Collection<ElementModule> elementModules;
+
+
     public Enseignant() {
+    }
+
+    public Enseignant(String nom, String prenom, String email, Collection<Module> modules, Collection<ElementModule> elementModules) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.modules = modules;
+        this.elementModules = elementModules;
+    }
+
+    public Enseignant(String nom, String prenom, Collection<ElementModule> elementModules, String email) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.elementModules = elementModules;
     }
 
     public Enseignant(String nom, String prenom, String email, Collection<Module> modules) {
@@ -71,5 +91,13 @@ public class Enseignant {
 
     public void setModules(Collection<Module> modules) {
         this.modules = modules;
+    }
+
+    public Collection<ElementModule> getElementModules() {
+        return elementModules;
+    }
+
+    public void setElementModules(Collection<ElementModule> elementModules) {
+        this.elementModules = elementModules;
     }
 }

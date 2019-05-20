@@ -19,6 +19,26 @@ public class ElementModule {
     @OneToMany(mappedBy = "elementModule", fetch = FetchType.LAZY)
     private Collection<Document> documents;
 
+
+    @ManyToMany(mappedBy = "elementModules", fetch = FetchType.LAZY)
+    private Collection<Enseignant> enseignants;
+
+    public ElementModule(String id, String nom,Collection<Enseignant> enseignants, String description) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.enseignants = enseignants;
+    }
+
+    public ElementModule(String id, String nom, String description, Module module, Collection<Document> documents, Collection<Enseignant> enseignants) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.module = module;
+        this.documents = documents;
+        this.enseignants = enseignants;
+    }
+
     public ElementModule() {
     }
 
@@ -90,4 +110,11 @@ public class ElementModule {
         this.documents = documents;
     }
 
+    public Collection<Enseignant> getEnseignants() {
+        return enseignants;
+    }
+
+    public void setEnseignants(Collection<Enseignant> enseignants) {
+        this.enseignants = enseignants;
+    }
 }
