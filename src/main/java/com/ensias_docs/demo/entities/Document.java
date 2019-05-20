@@ -15,6 +15,23 @@ public class Document {
     @JoinColumn(name = "id_element_module")
     private ElementModule elementModule;
 
+    @ManyToOne
+    @JoinColumn(name = "id_type_doc")
+    private TypeDoc typeDoc;
+
+    public Document(String nom, String url, TypeDoc typeDoc) {
+        this.nom = nom;
+        this.url = url;
+        this.typeDoc = typeDoc;
+    }
+
+    public Document(String nom, String url, ElementModule elementModule, TypeDoc typeDoc) {
+        this.nom = nom;
+        this.url = url;
+        this.elementModule = elementModule;
+        this.typeDoc = typeDoc;
+    }
+
     public Document(String nom, String url, ElementModule elementModule) {
         this.nom = nom;
         this.url = url;
@@ -59,5 +76,13 @@ public class Document {
 
     public void setElementModule(ElementModule elementModule) {
         this.elementModule = elementModule;
+    }
+
+    public TypeDoc getTypeDoc() {
+        return typeDoc;
+    }
+
+    public void setTypeDoc(TypeDoc typeDoc) {
+        this.typeDoc = typeDoc;
     }
 }
