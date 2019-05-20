@@ -120,20 +120,20 @@
         <div class="row">
             <!-- face gauche -->
             <div class="col-md-3">
-                <button type="button" class="btn btn-secondary btn-lg">Premiere année</button>
+                <button type="button" class="btn btn-secondary btn-lg"><a style="color: white;" th:href="@{filieres.html(id=${filiere.id},ann=1)}">Premiere année</a></button>
                 <br/>
-                <button type="button" class="btn btn-secondary btn-lg">deuxieme année</button>
+                <button type="button" class="btn btn-secondary btn-lg"><a style="color: white;" th:href="@{filieres.html(id=${filiere.id},ann=2)}">deuxieme année</a></button>
                 <br/>
-                <button type="button" class="btn btn-secondary btn-lg">troisieme année</button>
+                <button type="button" class="btn btn-secondary btn-lg"><a style="color: white;" th:href="@{filieres.html(id=${filiere.id},ann=3)}">troisieme année</a></button>
             </div>
             <!-- face droit -->
             <div class="col-md-8">
 
 
-                <div class="scroller">
+                <div style="margin-bottom: 10px">
                     <nav aria-label="breadcrumb" style="text-align: center">
                         <ol class="breadcrumb" style="background: #fc1008;">
-                            <li class="breadcrumb-item">Semestre 3 (452 VH)</li>
+                            <li class="breadcrumb-item" >Semestre <i th:text="${sem[0]}"/> (452 VH)</li>
                         </ol>
                     </nav>
                     <table class="table table-striped">
@@ -146,66 +146,37 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="mo:${filiere.modules}">
-                                <td th:text="${mo.abrv}"></td>
-                                <td th:text="${mo.nom}"></td>
-                                <td th:text="${mo.volumeHoraire}"></td>
-                            </tr>
-                        <tr>
-                            <th scope="row"><a href="elements.html">1</a></th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                        <tr style="color: #1b1e21" th:each="mo:${filiere.modules}" th:if="${mo.semestre.id == sem[0]}">
+                            <td><a style="color: #1b1e21" th:href="@{elements.html(filiere=${filiere.id},module=${mo.id})}"  th:text="${mo.abrv}"></a></td>
+                            <td><a style="color: #1b1e21" th:href="@{elements.html(filiere=${filiere.id},module=${mo.id})}"  th:text="${mo.nom}"></a></td>
+                            <td th:text="${mo.volumeHoraire}"></td>
+                            <td th:text="${mo.responsable.nom}"></td>
                         </tr>
                         </tbody>
                     </table>
 
                     <nav aria-label="breadcrumb" style="text-align: center">
                         <ol class="breadcrumb" style="background: #fc1008;">
-                            <li class="breadcrumb-item">Semestre 4 (450 VH)</li>
+                            <li class="breadcrumb-item">Semestre <i th:text="${sem[1]}"/> (450 VH)</li>
                         </ol>
                     </nav>
 
 
-                    <table class="table table-striped">
+                    <table class="table table-striped" style="color: #1b1e21">
                         <thead class="thead-dark">
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Code du module</th>
+                            <th scope="col">Intitulé du module</th>
+                            <th scope="col">VH global</th>
+                            <th scope="col">Respensable</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
+                        <tr th:each="mo:${filiere.modules}" th:if="${mo.semestre.id == sem[1]}">
+                            <td><a style="color: #1b1e21" th:href="@{elements.html(filiere=${filiere.id},module=${mo.id})}"  th:text="${mo.abrv}"></a></td>
+                            <td><a style="color: #1b1e21" th:href="@{elements.html(filiere=${filiere.id},module=${mo.id})}"  th:text="${mo.nom}"></a></td>
+                            <td th:text="${mo.volumeHoraire}"></td>
+                            <td th:text="${mo.responsable.nom}"></td>
                         </tr>
                         </tbody>
                     </table>

@@ -104,12 +104,17 @@
 				</li>
 				<li class="breadcrumb-item">
 					<a href="#">
-						<span>
-							home
+						<span th:text="${filiere.nom}">
 						</span>
 					</a>
 				</li>
-				<li class="breadcrumb-item active" aria-current="page">Data</li>
+				<li class="breadcrumb-item">
+					<a href="#">
+						<span th:text="${module.nom}">
+						</span>
+					</a>
+				</li>
+				<li class="breadcrumb-item active" aria-current="page" >M</li>
 			</ol>
 		</nav>
 	</div>
@@ -118,9 +123,8 @@
 	<div class="container">     
 		<div class="row">
 			<!-- face gauche -->
-			<div class="col-md-3">
-				<button type="button" class="btn btn-secondary btn-lg">element 1</button><br/>
-				<button type="button" class="btn btn-secondary btn-lg">element 2</button><br/>
+			<div class="col-md-3" >
+				<button th:each="element:${module.elementModules}"  type="button" class="btn btn-secondary btn-lg" th:text="${element.abrv}"></button><br/>
 			</div>
 			<!-- face droit -->
 			<div class="col-md-8">
