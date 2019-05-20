@@ -11,6 +11,16 @@ public class Document {
     private String nom;
     private String url;
 
+    @ManyToOne
+    @JoinColumn(name = "id_element_module")
+    private ElementModule elementModule;
+
+    public Document(String nom, String url, ElementModule elementModule) {
+        this.nom = nom;
+        this.url = url;
+        this.elementModule = elementModule;
+    }
+
     public Document(String nom, String url) {
         this.nom = nom;
         this.url = url;
@@ -41,5 +51,13 @@ public class Document {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public ElementModule getElementModule() {
+        return elementModule;
+    }
+
+    public void setElementModule(ElementModule elementModule) {
+        this.elementModule = elementModule;
     }
 }
